@@ -1,0 +1,91 @@
+:host {
+    display: flex;
+
+    padding: 1rem;
+    margin: 1rem;
+
+    .card-container {
+        display: flex;
+        flex: 1;
+
+        ::ng-deep {
+            .mat-card-header {
+                .mat-card-header-text {
+                    margin: 0;
+                }
+            }
+        }
+
+        .avatar-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            ::ng-deep {
+
+                .mat-card-avatar {
+                    height: 128px;
+                    width: 128px;
+                }
+
+                .mat-card-subtitle {
+                    align-self: center;
+                    margin-top: 1rem;
+                    font-weight: bold;
+                }
+            }
+
+            .example-header-image {
+                background-size: cover;
+            }
+        }
+
+        .content-container {
+
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            flex: 1;
+
+            .content {
+                display: flex;
+                align-content: center;
+                flex: 1;
+                flex-direction: column;
+
+                .personal {
+                    display: flex;
+                    align-content: center;
+
+                    .material-icons {
+                        margin-left: -5px;
+                    }
+                }
+
+                .company-wrapper {
+                    margin-top: 1rem;
+
+                    .company {
+                        display: flex;
+                        flex: 1;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .actions-container {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+        flex-direction: row;
+    }
+}
+
+:host {
+    .title {
+        font-weight: bold;
+    }
+}

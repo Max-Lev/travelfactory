@@ -1,0 +1,89 @@
+<mat-card [formGroup]="formGroup">
+
+    <div class="card-container">
+        <mat-card-header>
+            <div class="avatar-container">
+                <div mat-card-avatar class="example-header-image"
+                    [style.background-image]="'url(' + contact.avatar + ')'">
+                </div>
+                <mat-card-subtitle>{{contact.title}}</mat-card-subtitle>
+            </div>
+
+        </mat-card-header>
+
+        <ng-container *ngIf="!isEdit; else personalEdit">
+            <div class="content-container">
+                <mat-card-content>
+
+                    <div class="content">
+
+                        <div class="personal-wrapper">
+
+                            <span class="title">{{contact.fullName}}</span>
+                            
+                            <div class="personal">
+                                <span class="material-icons">location_on</span>
+                                <span>{{contact.personalAddress.address}}</span>
+                            </div>
+                        </div>
+
+                        <div class="company-wrapper">
+                            <span class="title">{{contact.company}}</span>
+                            <div class="company">
+                                <span>{{contact.companyAddress.street}}</span>
+                                <span>{{contact.companyAddress.city}}</span>
+                                <span>{{contact.phone}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+            </div>
+        </ng-container>
+
+
+        <ng-template #personalEdit>
+            <div class="content-container">
+                <mat-card-content>
+
+                    <div class="content">
+
+                        <div class="personal-wrapper">
+
+
+                            <input type="text" formControlName="username" value="contact.fullName">
+
+                            <div class="personal">
+                                <span class="material-icons">location_on</span>
+                                <input type="text" formControlName="address" value="contact.personalAddress.address">
+                            </div>
+                        </div>
+
+                        <div class="company-wrapper">
+                            <span class="title">{{contact.company}}</span>
+                            <div class="company">
+                                <span>{{contact.companyAddress.street}}</span>
+                                <span>{{contact.companyAddress.city}}</span>
+                                <span>{{contact.phone}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+            </div>
+        </ng-template>
+
+    </div>
+
+    <div class="actions-container">
+        <mat-card-actions>
+            <button (click)="edit()" mat-icon-button aria-label="Edit">
+                <mat-icon>create</mat-icon>
+            </button>
+            <button (click)="deleteContact(contact)" mat-icon-button aria-label="Delete">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card-actions>
+    </div>
+
+</mat-card>

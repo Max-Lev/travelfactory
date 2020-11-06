@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+
+    <ng-container formArrayName="contacts" *ngFor="let contact of contactsList;let i=index">
+
+        <ng-container [formGroupName]="i">
+
+            <app-contact-card [formGroup]="this.form.controls.contacts['controls'][i]" [id]="i"
+                (deleteEmitter)="deleteAction($event)" [contact]="contact">
+            </app-contact-card>
+
+        </ng-container>
+
+    </ng-container>
+
+</form>
